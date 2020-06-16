@@ -24,3 +24,14 @@ let chirpArr = [
     }
 ]
 
+let chirpPath = path.join(__dirname, "../chirps.json");
+
+let chirpJSON = JSON.stringify(chirpArr)
+
+fs.writeFileSync(chirpPath, chirpJSON, err => {
+    if (err) console.log(err);
+});
+
+fs.readFile(chirpPath, {encoding: 'UTF-8'}, (err, data) => {
+    console.log(data);
+})
